@@ -9,10 +9,10 @@ export default class Content extends Component {
               <div className="col-6">
                 <div className="card">
                   <div className="card-top">
-
+                    <i></i>
                   </div>
                   <div className="card-body">
-                    
+
                   </div>
                 </div>
               </div>
