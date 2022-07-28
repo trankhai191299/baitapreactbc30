@@ -18,8 +18,11 @@ export default class BaiTapComponent extends Component {
         </header>
         {/* Content */}
         <section>
-          
+          <Content/>
         </section>
+        <footer>
+          <Footer/>
+        </footer>
       </div>
     )
   }
