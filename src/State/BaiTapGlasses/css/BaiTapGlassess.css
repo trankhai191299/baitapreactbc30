@@ -1,0 +1,19 @@
+.baiTapGlass_Body{
+    position: relative;
+    background-image: url(../glassesImage/background.jpg);
+    filter: grayscale(20%);
+    z-index: -1;
+  }
+.baiTapGlass_Body::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .2);
+  z-index: 0;
+}
+.model-section,.glasses-choice{
+  z-index: 1;
+}
