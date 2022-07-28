@@ -1,7 +1,6 @@
 .baiTapGlass_Body{
     position: relative;
     background-image: url(../glassesImage/background.jpg);
-    filter: grayscale(20%);
     z-index: -1;
   }
 .baiTapGlass_Body::before{
