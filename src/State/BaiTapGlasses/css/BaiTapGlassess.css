@@ -1,9 +1,45 @@
 .baiTapGlass_Body{
     position: relative;
     background-image: url(../glassesImage/background.jpg);
-    z-index: -1;
-  }
-.baiTapGlass_Body::before{
+    z-index: 0;
+}
+.baiTapGlass_Body .main-content .glasses-choice .item{
+  overflow: hidden;
+}
+.baiTapGlass_Body .main-content .glasses-choice .item img:hover{
+  transition: all .5s;
+  transform: scale(1.2);
+}
+.baiTapGlass_Body .main-content .model-section .image{
+  position: relative;
+  overflow: hidden;
+  width: 205px;
+  transform: translateX(70%);
+}
+.baiTapGlass_Body .main-content .model-section .overlay-content{
+  position: absolute;
+  width: 100%;
+  top: 25%;
+  left: 0;
+}
+.baiTapGlass_Body .main-content .model-section .overlay-content img{
+  width: 52%;
+  height: 35.17px;
+}
+.baiTapGlass_Body .main-content .model-section .overlay-content .information{
+  background-color: rgba(255, 127, 80, .5);
+  text-align: left;
+  transform: translateY(86%);
+}
+.baiTapGlass_Body .main-content .model-section .overlay-content .information h2{
+  font-size: 16px;
+  color: blue;
+}
+.baiTapGlass_Body .main-content .model-section .overlay-content .information p{
+  font-size: 12px;
+  color: white;
+}
+/* .baiTapGlass_Body::before{
   content: "";
   position: absolute;
   top: 0;
@@ -15,4 +51,4 @@
 }
 .model-section,.glasses-choice{
   z-index: 1;
-}
+} */
