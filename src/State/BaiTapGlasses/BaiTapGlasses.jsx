@@ -79,7 +79,7 @@ export default class BaiTapGlasses extends Component {
         return (
           <div className="col-2" key={index}>
             <div className="item p-3">
-              <img src={glassInform.url} alt="..." className="img-fluid" onClick={()=>{
+              <img style={{cursor:'grab'}} src={glassInform.url} alt="..." className="img-fluid" onClick={()=>{
                 this.changeGlasses(glassInform)
               }}/>
             </div>
@@ -93,10 +93,27 @@ export default class BaiTapGlasses extends Component {
     })
   }
   render() {
+    const keyframeGlass = `
+    @keyframes animateGlasses${Date.now()} {
+      from{
+        transform: scale(0%) rotate(-60deg);
+      }
+      to{
+        transform: scale(100%) rotate(0deg);
+      }
+    }
+    `
+    const styleGlass = {
+      transform: 'rotate(0deg)',
+      animation: `animateGlasses${Date.now()} 1s`
+    }
     let {name,url,desc} = this.state.thongTinMatKinh
     return (
       <div className="baiTapGlass_Body">
-        {/* <div className="overlay"></div> */}
+        <style>
+            {keyframeGlass}
+        </style>
+        <div className="overlayBody">
         <header
           className="text-center p-4 text-white"
           style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
@@ -117,7 +134,7 @@ export default class BaiTapGlasses extends Component {
                       height={250}
                     />
                     <div className="overlay-content">
-                      <img src={url} alt="..." />
+                      <img style={styleGlass}  src={url} alt="..." />
                       <div className="information">
                         <h2 className="glass-name">{name}</h2>
                         <p className="glass-description">{desc}</p>
@@ -140,6 +157,7 @@ export default class BaiTapGlasses extends Component {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     );

@@ -1,6 +1,9 @@
 .baiTapGlass_Body{
     position: relative;
     background-image: url(../glassesImage/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top left;
     z-index: 0;
 }
 .baiTapGlass_Body .main-content .glasses-choice .item{
@@ -25,6 +28,7 @@
 .baiTapGlass_Body .main-content .model-section .overlay-content img{
   width: 52%;
   height: 35.17px;
+  opacity: .7;
 }
 .baiTapGlass_Body .main-content .model-section .overlay-content .information{
   background-color: rgba(255, 127, 80, .5);
@@ -39,16 +43,6 @@
   font-size: 12px;
   color: white;
 }
-/* .baiTapGlass_Body::before{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, .2);
-  z-index: 0;
+.baiTapGlass_Body .overlayBody{
+  background-color: rgba(0, 0, 0, .3);
 }
-.model-section,.glasses-choice{
-  z-index: 1;
-} */
