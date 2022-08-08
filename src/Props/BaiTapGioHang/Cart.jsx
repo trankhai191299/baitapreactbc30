@@ -49,8 +49,8 @@ export default class Cart extends Component {
                                     updownTotalAmount(item.maSP,false)
                                   }}>-</button>
                                 </td>
-                                <td>{item.giaBan} VND</td>
-                                <td>{item.soLuong*item.giaBan} VND</td>
+                                <td>{item.giaBan.toLocaleString()} VND</td>
+                                <td>{(item.soLuong*item.giaBan).toLocaleString()} VND</td>
                                 <td>
                                   <button className="btn btn-danger" onClick={()=>{deleteCart(item.maSP)}}>Delete</button>
                                 </td>
