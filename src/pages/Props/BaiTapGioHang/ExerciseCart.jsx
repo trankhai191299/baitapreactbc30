@@ -98,7 +98,7 @@ export default class ExerciseCart extends Component {
       return totalAmount += item.soLuong
     },0)
     return (
-      <div className="container">
+      <div>
         <h3 className="text-center text-white bg-dark py-3">Bài Tập Giỏ hàng</h3>
         <Cart cart = {this.state.cart} deleteCart = {this.deleteCart} updownTotalAmount = {this.updownTotalAmount}/>
         <div className="text-end">

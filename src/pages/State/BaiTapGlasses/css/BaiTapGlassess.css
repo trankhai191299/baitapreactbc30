@@ -29,11 +29,14 @@
   width: 52%;
   height: 35.17px;
   opacity: .7;
+  position: absolute;
+  left: 50px;
 }
 .baiTapGlass_Body .main-content .model-section .overlay-content .information{
   background-color: rgba(255, 127, 80, .5);
   text-align: left;
-  transform: translateY(86%);
+  position: absolute;
+  top: 90px;
 }
 .baiTapGlass_Body .main-content .model-section .overlay-content .information h2{
   font-size: 16px;
