@@ -5,7 +5,7 @@ import {Outlet,NavLink} from 'react-router-dom'
 function App() {
   return (
     <div>
-          <div>
+      <div style={{borderBottom:"1px solid white"}}>
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
           <NavLink className="navbar-brand" to="/">Bài Tập React</NavLink>
           <button className="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation" />
@@ -13,8 +13,7 @@ function App() {
             <ul className="navbar-nav me-auto mt-2 mt-lg-0">
               <li className="nav-item active">
                 <NavLink 
-                className={({isActive})=> isActive ? 'bg-light text-dark nav-link' : 'nav-link' }
-                style={({isActive}) => isActive ? {borderRadius:'5px'} : {}} 
+                className={({isActive})=> isActive ? 'bg-light text-dark nav-link' : 'nav-link' } 
                 to="/component">Bài tập Component <span className="visually-hidden">(current)</span></NavLink>
               </li>
               <li className="nav-item">
@@ -24,7 +23,7 @@ function App() {
                 <NavLink className={({isActive})=> isActive ? 'bg-light text-dark nav-link' : 'nav-link' } to="/exercisecart">Exercise Cart</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className={({isActive})=> isActive ? 'bg-light text-dark nav-link' : 'nav-link' } to="/contact">Contact</NavLink>
+                <NavLink className={({isActive})=> isActive ? 'bg-light text-dark nav-link' : 'nav-link' } to="/redux">ReactJS Form</NavLink>
               </li>
               {/* <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -40,9 +39,9 @@ function App() {
       <div style={{ minHeight: 650 }}>
         <Outlet />
       </div>
-      {/* <footer className="bg-dark text-white  text-center p-5">
-        Footer
-      </footer> */}
+      <footer className="bg-dark text-white text-center p-5" style={{borderTop:'1px solid white'}}>
+        @BaiTapReact <span style={{fontSize:"20px"}}> Trần Hoàng Khải BC30</span>
+      </footer>
     </div>
   );
 }
