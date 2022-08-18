@@ -2,6 +2,16 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 export class TableSinhVien extends Component {
+  
+  searchName = (e) => {
+    const action = {
+      type : "SEARCH_NAME",
+      payload :{
+        searchName : e.target.value
+      }
+    }
+    this.props.dispatch(action)
+  }
   renderTable = () =>{
     let {arrSV,arrSvSearch} = this.props.baitapReduxReducer
     if(!arrSvSearch.length){
@@ -54,17 +64,8 @@ export class TableSinhVien extends Component {
       <div className='mt-3'>
         <form>
           <div className="form-group">
-            <input type="text" id='searchName' className='form-control mb-3' placeholder='Search Name...' onChange={(e)=>{
-              const action = {
-                type : "SEARCH_NAME",
-                payload :{
-                  searchName : e.target.value
-                }
-              }
-              this.props.dispatch(action)
-            }}/>
+            <input type="text" id='searchName' className='form-control mb-3' placeholder='Search Name...' onChange={this.searchName}/>
           </div>
-          
         </form>
         <table className='table'>
             <thead className='bg-dark text-white'>
