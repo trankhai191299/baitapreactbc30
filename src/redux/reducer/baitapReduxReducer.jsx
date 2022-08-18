@@ -15,7 +15,8 @@ const stateDefault = {
         maSV:"",
         tenSV:"",
         sdt:"",
-        email:""
+        email:"",
+        searchName :"",
     },
     arrSvSearch : [],
 }
@@ -38,12 +39,12 @@ export const baitapReduxReducer = (state=stateDefault,action)=>{
             }
             // kiểm tra rỗng
             if(value.trim() === ''){
-                errorMess = otherID + " không được để trống"
+                errorMess = otherID + " không được để trống!"
             }
             // kiểm tra pattern
-            const regrexEmail = new RegExp(pattern)
-            if (!regrexEmail.test(value)){
-                errorMess = otherID + " không hợp lệ";
+            const regrex = new RegExp(pattern)
+            if (!regrex.test(value)){
+                errorMess = otherID + " không hợp lệ!";
             }
             state.error[id] = errorMess
             state.sinhVien[id] = value
@@ -71,12 +72,11 @@ export const baitapReduxReducer = (state=stateDefault,action)=>{
             return {...state}
         }
         case 'SEARCH_NAME' :{
-            debugger
-            let {searchName} = action.payload
-            searchName = searchName.trim().toLowerCase()
-            
+            let {value} = action.payload
+
+            value = value.trim().toLowerCase()
             let arrSvUpdate = [...state.arrSV]
-            arrSvUpdate = arrSvUpdate.filter(sv => sv.tenSV.trim().toLowerCase().includes(searchName))
+            arrSvUpdate = arrSvUpdate.filter(sv => sv.tenSV.trim().toLowerCase().includes(value))
             
             state.arrSvSearch = arrSvUpdate;
             return {...state}

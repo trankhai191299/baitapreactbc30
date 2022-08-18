@@ -7,7 +7,7 @@ export class TableSinhVien extends Component {
     const action = {
       type : "SEARCH_NAME",
       payload :{
-        searchName : e.target.value
+        value : e.target.value,
       }
     }
     this.props.dispatch(action)
@@ -59,12 +59,12 @@ export class TableSinhVien extends Component {
     }
   }
   render() {
-    // let {arrSV,arrSvSearch} = this.props.baitapReduxReducer
+    let {error} = this.props.baitapReduxReducer
     return (
       <div className='mt-3'>
         <form>
           <div className="form-group">
-            <input type="text" id='searchName' className='form-control mb-3' placeholder='Search Name...' onChange={this.searchName}/>
+            <input type="text" id='searchName' pattern='^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s\W|_]+' className='form-control mb-3' placeholder='Search Name...' onChange={this.searchName}/>
           </div>
         </form>
         <table className='table'>
