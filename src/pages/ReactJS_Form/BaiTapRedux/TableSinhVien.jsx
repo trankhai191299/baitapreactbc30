@@ -2,8 +2,54 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 export class TableSinhVien extends Component {
+  renderTable = () =>{
+    let {arrSV,arrSvSearch} = this.props.baitapReduxReducer
+    if(!arrSvSearch.length){
+      return arrSV.map((sv,index)=>{
+        return <tr key={index}>
+            <td>{sv.maSV}</td>
+            <td>{sv.tenSV}</td>
+            <td>{sv.sdt}</td>
+            <td>{sv.email}</td>
+            <td>
+              <button className='btn btn-danger mx-2' onClick={()=>{
+                const action = {
+                  type : 'DELETE_SV',
+                  payload : {
+                    maSV : sv.maSV
+                  }
+                }
+                this.props.dispatch(action)
+              }}>Xóa SV</button>
+              <button className='btn btn-primary mx-2'>Cập nhật</button>
+            </td>
+        </tr>
+    })
+    }else{
+      return arrSvSearch.map((sv,index)=>{
+        return <tr key={index}>
+            <td>{sv.maSV}</td>
+            <td>{sv.tenSV}</td>
+            <td>{sv.sdt}</td>
+            <td>{sv.email}</td>
+            <td>
+              <button className='btn btn-danger mx-2' onClick={()=>{
+                const action = {
+                  type : 'DELETE_SV',
+                  payload : {
+                    maSV : sv.maSV
+                  }
+                }
+                this.props.dispatch(action)
+              }}>Xóa SV</button>
+              <button className='btn btn-primary mx-2'>Cập nhật</button>
+            </td>
+        </tr>
+      })
+    }
+  }
   render() {
-    let {arrSV} = this.props.baitapReduxReducer
+    // let {arrSV,arrSvSearch} = this.props.baitapReduxReducer
     return (
       <div className='mt-3'>
         <form>
@@ -31,26 +77,7 @@ export class TableSinhVien extends Component {
                 </tr>
             </thead>
             <tbody>
-                {arrSV.map((sv,index)=>{
-                    return <tr key={index}>
-                        <td>{sv.maSV}</td>
-                        <td>{sv.tenSV}</td>
-                        <td>{sv.sdt}</td>
-                        <td>{sv.email}</td>
-                        <td>
-                          <button className='btn btn-danger mx-2' onClick={()=>{
-                            const action = {
-                              type : 'DELETE_SV',
-                              payload : {
-                                maSV : sv.maSV
-                              }
-                            }
-                            this.props.dispatch(action)
-                          }}>Xóa SV</button>
-                          <button className='btn btn-primary mx-2'>Cập nhật</button>
-                        </td>
-                    </tr>
-                })}
+                {this.renderTable()}
             </tbody>
         </table>
       </div>

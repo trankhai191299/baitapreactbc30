@@ -16,7 +16,8 @@ const stateDefault = {
         tenSV:"",
         sdt:"",
         email:""
-    }
+    },
+    arrSvSearch : [],
 }
 
 export const baitapReduxReducer = (state=stateDefault,action)=>{
@@ -77,7 +78,7 @@ export const baitapReduxReducer = (state=stateDefault,action)=>{
             let arrSvUpdate = [...state.arrSV]
             arrSvUpdate = arrSvUpdate.filter(sv => sv.tenSV.trim().toLowerCase().includes(searchName))
             
-            state.arrSV = arrSvUpdate;
+            state.arrSvSearch = arrSvUpdate;
             return {...state}
         }
         default : return state
