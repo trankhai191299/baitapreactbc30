@@ -67,6 +67,7 @@ export class SinhVien extends Component {
             </div>
           </div>
           {this.renderBtnSubmit()}
+          <button className='btn btn-primary mx-2'>Cập nhật sinh viên</button>
         </form>
       </div>
     );

@@ -81,6 +81,19 @@ export const baitapReduxReducer = (state=stateDefault,action)=>{
             state.arrSvSearch = arrSvUpdate;
             return {...state}
         }
+        // 1.
+        case 'GET_ID' :{
+            let {maSV} = action.payload
+
+            let arrUpdate = (!state.arrSvSearch.length)?[...state.arrSV]:[...state.arrSvSearch]
+            let sv = arrUpdate.find(sv => sv.maSV === maSV)
+            if(sv){
+                state.sinhVien = sv
+            }
+            return {...state}
+        }
+        // 2.
+
         default : return state
     }
 }

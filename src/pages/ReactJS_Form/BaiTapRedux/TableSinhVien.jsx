@@ -12,6 +12,7 @@ export class TableSinhVien extends Component {
     }
     this.props.dispatch(action)
   }
+  
   renderTable = () =>{
     let {arrSV,arrSvSearch} = this.props.baitapReduxReducer
     if(!arrSvSearch.length){
@@ -31,10 +32,19 @@ export class TableSinhVien extends Component {
                 }
                 this.props.dispatch(action)
               }}>Xóa SV</button>
-              <button className='btn btn-primary mx-2'>Cập nhật</button>
+              <button className='btn btn-primary mx-2' onClick={()=>{
+                const action = {
+                  type : 'GET_ID',
+                  payload : {
+                    maSV : sv.maSV
+                  }
+                }
+                this.props.dispatch(action)
+              }}>Chỉnh sửa</button>
             </td>
         </tr>
     })
+    
     }else{
       return arrSvSearch.map((sv,index)=>{
         return <tr key={index}>
@@ -52,14 +62,22 @@ export class TableSinhVien extends Component {
                 }
                 this.props.dispatch(action)
               }}>Xóa SV</button>
-              <button className='btn btn-primary mx-2'>Cập nhật</button>
+              <button className='btn btn-primary mx-2' onClick={()=>{
+                const action = {
+                  type : 'GET_ID',
+                  payload : {
+                    maSV : sv.maSV
+                  }
+                }
+                this.props.dispatch(action)
+              }}>Chỉnh sửa</button>
             </td>
         </tr>
       })
+    
     }
   }
   render() {
-    let {error} = this.props.baitapReduxReducer
     return (
       <div className='mt-3'>
         <form>
