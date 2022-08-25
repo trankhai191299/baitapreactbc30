@@ -10,8 +10,9 @@ import reportWebVitals from './reportWebVitals';
 import WelcomePage from './pages/Welcome/WelcomePage';
 //
 import {Provider} from 'react-redux';
-import BaiTapRedux from './pages/ReactJS_Form/BaiTapRedux/BaiTapRedux';
+
 import { store } from './redux/configStore';
+import ReactJSForm from './pages/BaiTapRedux/ReactJSForm/ReactJSForm';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
@@ -23,7 +24,7 @@ root.render(
           <Route path="component" element={<BaiTapComponent />}></Route>
           <Route path="glasses" element={<BaiTapGlasses />}></Route>
           <Route path="exercisecart" element={<ExerciseCart />}></Route>
-          <Route path="redux" element={<BaiTapRedux />}></Route>
+          <Route path="reactform" element={<ReactJSForm/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

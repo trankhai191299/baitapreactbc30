@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import SinhVien from './SinhVien'
 import TableSinhVien from './TableSinhVien'
 
-class BaiTapRedux extends Component {
+class ReactJSForm extends Component {
   render() {
     return (
       <div className='container'>
@@ -18,5 +18,5 @@ class BaiTapRedux extends Component {
 const mapStateToProps = (state) => ({})
 
 
-export default connect(mapStateToProps)(BaiTapRedux)
+export default connect(mapStateToProps)(ReactJSForm)
 

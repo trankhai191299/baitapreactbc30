@@ -65,11 +65,11 @@ export const baitapReduxReducer = (state=stateDefault,action)=>{
         case 'DELETE_SV' : {
             let {maSV} = action.payload
 
-            let arrSvUpdate = [...state.arrSV]
-            arrSvUpdate = arrSvUpdate.filter(sv => sv.maSV !== maSV)
+            let arrSvUpdate = [...state.arrSV];
+            arrSvUpdate = arrSvUpdate.filter(sv => sv.maSV !== maSV);
 
-            state.arrSV = arrSvUpdate
-            return {...state}
+            state.arrSV = arrSvUpdate;
+            return {...state};
         }
         case 'SEARCH_NAME' :{
             let {value} = action.payload
