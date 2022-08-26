@@ -39,7 +39,7 @@ function App() {
           </div>
         </nav>
       </div>
-      <div style={{ minHeight: 650 }}>
+      <div>
         <Outlet />
       </div>
       <footer className="bg-dark text-white text-center p-5" style={{borderTop:'1px solid white'}}>
