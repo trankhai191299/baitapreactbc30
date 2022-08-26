@@ -8,11 +8,13 @@ import BaiTapGlasses from './pages/State/BaiTapGlasses/BaiTapGlasses';
 import ExerciseCart from './pages/Props/BaiTapGioHang/ExerciseCart';
 import reportWebVitals from './reportWebVitals';
 import WelcomePage from './pages/Welcome/WelcomePage';
+import ReactJSForm from './pages/BaiTapRedux/ReactJSForm/ReactJSForm';
+import BaiTapDatVeXemPhim from './pages/BaiTapRedux/BaiTapDatVeXemPhim/BaiTapDatVeXemPhim';
 //
 import {Provider} from 'react-redux';
 
 import { store } from './redux/configStore';
-import ReactJSForm from './pages/BaiTapRedux/ReactJSForm/ReactJSForm';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
@@ -25,6 +27,7 @@ root.render(
           <Route path="glasses" element={<BaiTapGlasses />}></Route>
           <Route path="exercisecart" element={<ExerciseCart />}></Route>
           <Route path="reactform" element={<ReactJSForm/>}></Route>
+          <Route path="bookingticket" element={<BaiTapDatVeXemPhim/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

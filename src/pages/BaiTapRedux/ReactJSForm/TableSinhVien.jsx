@@ -14,7 +14,7 @@ export class TableSinhVien extends Component {
   }
   
   renderTable = () =>{
-    let {arrSV,arrSvSearch} = this.props.baitapReduxReducer
+    let {arrSV,arrSvSearch} = this.props.reactFormReducer
     if(!arrSvSearch.length){
       return arrSV.map((sv,index)=>{
         return <tr key={index}>
@@ -105,7 +105,7 @@ export class TableSinhVien extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    baitapReduxReducer : state.baitapReduxReducer
+  reactFormReducer : state.reactFormReducer
 })
 
 

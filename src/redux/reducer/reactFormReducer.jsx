@@ -21,7 +21,7 @@ const stateDefault = {
     arrSvSearch : [],
 }
 
-export const baitapReduxReducer = (state=stateDefault,action)=>{
+export const reactFormReducer = (state=stateDefault,action)=>{
     switch(action.type){
         case 'HANDLE_CHANGE_INPUT':{
             let {id,value,pattern} = action.payload

@@ -14,7 +14,7 @@ export class SinhVien extends Component {
     this.props.dispatch(action)
   }
   renderBtnSubmit = () =>{
-    let {error} = this.props.baitapReduxReducer
+    let {error} = this.props.reactFormReducer
     let valid = true
     for(let key in error){
       if(error[key] !== ''){
@@ -27,7 +27,7 @@ export class SinhVien extends Component {
     return <button className='btn btn-success' disabled>Thêm Sinh Viên</button>
   }
   render() {
-    let {sinhVien,error} = this.props.baitapReduxReducer
+    let {sinhVien,error} = this.props.reactFormReducer
     return (
       <div>
         <form onSubmit={(e)=>{
@@ -75,7 +75,7 @@ export class SinhVien extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    baitapReduxReducer : state.baitapReduxReducer
+  reactFormReducer : state.reactFormReducer
 })
 
 

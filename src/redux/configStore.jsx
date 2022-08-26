@@ -1,9 +1,9 @@
 import { combineReducers, createStore } from "redux";
-import { baitapReduxReducer } from "./reducer/baitapReduxReducer";
+import { reactFormReducer } from "./reducer/reactFormReducer";
 
 
 const rootReducer = combineReducers({
-    baitapReduxReducer:baitapReduxReducer
+    reactFormReducer:reactFormReducer
 })
 
 export const store = createStore(rootReducer,
