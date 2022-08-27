@@ -1,9 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./BaiTapBookingTicket.css";
+import danhSachGhe from '../../data/danhSachGhe.json'
 import ThongTinDatGhe from "./ThongTinDatGhe";
+import HangGhe from "./HangGhe";
 
 class BaiTapDatVeXemPhim extends Component {
+  renderHangGhe = () =>{
+    return danhSachGhe.map((hangGhe,index)=>{
+      return  <div key={index}>
+                <HangGhe hangGhe={hangGhe} soHangGhe={index}/>
+              </div>
+    })
+  }
   render() {
     return (
       <div
@@ -22,10 +31,12 @@ class BaiTapDatVeXemPhim extends Component {
             <div className="row">
               <div className="col-8 text-center">
                 <h1 className="text-warning text-center">Bài tập đặt vé xem phim</h1>
-                <h4 className="mt-5 text-light">Màn hình</h4>
-                <div className="d-flex flex-row justify-content-center mt-1">
+                <h4 className="mt-3 text-light">Màn hình</h4>
+                <div className="d-flex flex-column justify-content-center mt-1">
                   <div className="screen"></div>
+                  {this.renderHangGhe()}
                 </div>
+                
               </div>
               <div className="col-4">
                 <div className="text-light fs-3 mt-2 text-center">Danh sách bạn chọn</div>
