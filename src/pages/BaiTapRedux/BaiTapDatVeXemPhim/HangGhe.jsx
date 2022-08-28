@@ -4,14 +4,32 @@ import { connect } from 'react-redux'
 class HangGhe extends Component {
   renderGhe = () =>{
     let {hangGhe} = this.props
+    let {listGheDangDat} = this.props.bookingTicketReducer
+
     return hangGhe.danhSachGhe.map((ghe,index)=>{
       let cssGheDaDat = '';
+      let cssGheDangDat = '';
       let disable= false;
+
       if(ghe.daDat){
         cssGheDaDat = 'gheDuocChon'
         disable = true;
       }
-      return <button disabled={disable} className={`ghe ${cssGheDaDat}`} key={index}>
+
+      let gheDangDat = listGheDangDat.find(gheDangDat => gheDangDat.soGhe === ghe.soGhe)
+      if(gheDangDat){
+        cssGheDangDat = 'gheDangChon'
+      }
+
+      return <button disabled={disable} className={`ghe ${cssGheDaDat} ${cssGheDangDat}`} key={index} onClick={()=>{
+        const action = {
+          type:"DAT_GHE",
+          payload :{
+            datGhe:ghe
+          }
+        }
+        this.props.dispatch(action)
+      }}>
         {index+1}
       </button>
     })
@@ -45,7 +63,9 @@ class HangGhe extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({})
+const mapStateToProps = (state) => ({
+  bookingTicketReducer : state.bookingTicketReducer
+})
 
 
 export default connect(mapStateToProps)(HangGhe)

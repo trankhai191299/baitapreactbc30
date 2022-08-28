@@ -1,9 +1,11 @@
 import { combineReducers, createStore } from "redux";
+import { bookingTicketReducer } from "./reducer/bookingTicketReducer";
 import { reactFormReducer } from "./reducer/reactFormReducer";
 
 
 const rootReducer = combineReducers({
-    reactFormReducer:reactFormReducer
+    reactFormReducer:reactFormReducer,
+    bookingTicketReducer:bookingTicketReducer,
 })
 
 export const store = createStore(rootReducer,

@@ -2,6 +2,32 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class ThongTinDatGhe extends Component {
+  renderDatGhe = () =>{
+    let {listGheDangDat} = this.props.bookingTicketReducer
+    return listGheDangDat?.map((ghe,index)=>{
+      return  <tr key={index} className="text-warning">
+                <td>{ghe.soGhe}</td>
+                <td>{ghe.gia.toLocaleString()}</td>
+                <td>
+                  <button className='btn btn-danger' onClick={()=>{
+                    const action = {
+                      type:"HUY_GHE",
+                      payload:{
+                        huyGhe : ghe
+                      }
+                    }
+                    this.props.dispatch(action)
+                  }}>Hủy</button>
+                </td>
+              </tr>
+    })
+  }
+  tongTien = () =>{
+    let {listGheDangDat} = this.props.bookingTicketReducer
+    return listGheDangDat?.reduce((tongTien,ghe,index)=>{
+      return tongTien += ghe.gia
+    },0).toLocaleString()
+  }
   render() {
     return (
       <div>
@@ -31,8 +57,17 @@ class ThongTinDatGhe extends Component {
               </tr>
             </thead>
             <tbody>
-            
+              {this.renderDatGhe()}
             </tbody>
+            <tfoot>
+              <tr className='text-success'>
+                <td>Tổng tiền:</td>
+                <td>
+                  {this.tongTien()}
+                </td>
+                <td></td>
+              </tr>
+            </tfoot>
           </table>
         </div>
       </div>
@@ -40,7 +75,9 @@ class ThongTinDatGhe extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({})
+const mapStateToProps = (state) => ({
+  bookingTicketReducer : state.bookingTicketReducer
+})
 
 
 export default connect(mapStateToProps)(ThongTinDatGhe)
